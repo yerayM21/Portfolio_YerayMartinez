@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title>
+</head>
+<body>
+    <h1>My Projects</h1>
+    <ul>
+        {% for project in projects %}
+            <li>
+                <h2>{{ project.title }}</h2>
+                <p>{{ project.description|linebreaks }}</p>
+                <p>{{ project.technology }}</p>
+                {% if project.image%}
+                   <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                {% elif project.youtube_link %}
+                   <iframe width="560" height="315" src="{{ project.youtube_link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                {% endif %}
+                <a href="{{ project.link }}">GitHub Proyect</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
