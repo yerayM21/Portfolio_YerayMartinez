@@ -1,11 +1,45 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>My Portfolio</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css'%}">
 </head>
+<header id="masthead" class="site-header fixed" role="banner">
+    <div class="header-wrap">
+        <div class="container">
+            
+            <div class="row">
+                
+                <div class="col-md-4 col-sm-8 col-xs-12">
+                    <h1>
+                        <a href="#masthead" rel="home">Yeray Martinez</a>
+                    </h1>
+                    <h2 class="site-description">Data Science</h2>
+                </div>
+                    <nav id="mainnav-mobi" class="mainnav syd-hidden" role='navigation'>
+                        <div class="menu-menu-container">
+                            <ul id="menu-menu" class="menu">
+                                <li id="menu-item-602" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-602"><a href="#masthead" >Home</a></li>
+                                <li id="menu-item-609" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-609"><a href="#Portfolio" >Portfolio</a></li>
+                                <li id="menu-item-609" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-609"><a href="#Portfolio" >About me</a></li>
+                                <li id="menu-item-609" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-609"><a href="#Portfolio" >social</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- #site-navigation -->
+                </div>
+                
+            </div>
+        </div>
+    </div>   
+</header>
 <body>
-    <h1>My Projects</h1>
-    <ul>
+    <!-- #masthead -->
+    <div id="content" class="page-wrap">
+     <h1 id="Portfolio">My Projects</h1>
+     <ul>
         {% for project in projects %}
             <li>
                 <h2>{{ project.title }}</h2>
@@ -16,9 +50,10 @@
                 {% elif project.youtube_link %}
                    <iframe width="560" height="315" src="{{ project.youtube_link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 {% endif %}
-                <a href="{{ project.link }}">GitHub Proyect</a>
+                <a href="{{ project.link }}">GitHub Project</a>
             </li>
         {% endfor %}
-    </ul>
+     </ul>
+    </div>
 </body>
 </html>
